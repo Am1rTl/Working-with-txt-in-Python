@@ -2,7 +2,7 @@
 def split_into_sentences():
   a = int(input())#enter the number of characters that we want to be removed from the book
   handle = open('MyBook.txt')#Choosing a book and writing it in quotes ('name.txt')
-  data = handle.read(a)#wrine number
+  data = handle.read(a)#wrine number # or readline(n)
   print(data)#print these characters from the book
   handle.close()#close file
 split_into_sentences()
