@@ -17,7 +17,7 @@ class readbook():
 
   def close(self):
     self.handle.close()
-book = readbook('The Burning Secret.txt')
+book = readbook('MyBook.txt')
 book.counter()
 book.close()
 book.print()
