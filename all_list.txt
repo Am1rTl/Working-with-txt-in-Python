@@ -23,3 +23,8 @@ f = open("The War of the Worlds.txt","r")
 text = f.read(100)
 print(sentence)
 ```
+
+```python
+s = "Подсветка Python"
+print s
+```
