@@ -75,6 +75,29 @@ print(true_names)
 
 Уровень 3. Придумайте более сложный механизм подсчёта. Несколько идей: а что персонажи друг другу говорят? Как оно окрашено? Необязательно применять готовые анализаторы -- можно придумать эвристику на основе анализа "плохих" и "хороших" слов.
 ```
+f = open("The War of the Worlds.txt","r")
+text = f.read()
+text = text.replace('\n','')
+text = text.replace('`','')
+text = text.replace('(','')
+text = text.replace('"','')
+words = re.split("\s|[,.]",text)
+sentences = re.split("[.!?]", text)
+words = [word for word in words if word != '']
+
+first_words = [sent.split() for sent in sentences if(sent != '') and (sent != ' ')]
+other_words = [sent.split()[1:-1] for sent in sentences if(sent != '')]
+other_words = sum(other_words,[])
+names = [word for word in other_words if word.istitle()]
+names = list(set(names))
+verbs = ['has', 'got','said','is', 'was', 'does', 'wanted', 'did']
+not_names = [ 'He',  'What', 'This', 'Where', 'Which','That', 'I', 'You', 'It', 'How', 'Why', 'When', 'But', 'Nature','No', 'Deputation', 'Thing', 'Death','Mars', 'London', 'Monday', 'Asia', 'June', 'Londoners', 'Lord','Hill','Friday','Who', 'She', 'Somebody', 'Here', 'There','England', 'Square', 'Street']#сюда - наречия
+true_names = []
+for i in range(0,len(words) - 1):
+  if words[i] in names and words[i + 1] in verbs and words[i] not in not_names:
+    true_names.append(words[i])
+true_names = list(set(true_names))
+print(true_names)
 pair_count = dict()
 
 for true_name in true_names:
