@@ -97,7 +97,6 @@ for i in range(0,len(words) - 1):
   if words[i] in names and words[i + 1] in verbs and words[i] not in not_names:
     true_names.append(words[i])
 true_names = list(set(true_names))
-print(true_names)
 pair_count = dict()
 
 for true_name in true_names:
