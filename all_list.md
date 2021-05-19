@@ -55,7 +55,7 @@ words = re.split("\s|[,.]",text)
 sentences = re.split("[.!?]", text)
 words = [word for word in words if word != '']
 
-first_words = [sent.split()[0] for sent in sentences if(sent != '') and (sent != ' ')]
+first_words = [sent.split() for sent in sentences if(sent != '') and (sent != ' ')]
 other_words = [sent.split()[1:-1] for sent in sentences if(sent != '')]
 other_words = sum(other_words,[])
 names = [word for word in other_words if word.istitle()]
